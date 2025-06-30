@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aks-azure-function
+  labels:
+    app: aks-azure-function
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: aks-azure-function
+  template:
+    metadata:
+      labels:
+        app: aks-azure-function
+    spec:
+      containers:
+      - name: aks-azure-function
+        image: arkoacr.azurecr.io/aks-azure-function:latest
+        ports:
+        - containerPort: 80
+        env:
+        - name: FUNCTIONS_WORKER_RUNTIME
+          value: "python"
+        - name: AzureWebJobsStorage
+          value: "DefaultEndpointsProtocol=https;AccountName=arkostorage;AccountKey=YFCRGJlB2jAjLAGZ3///xFaMi2dphxJ5qOzA65x8yeJks6hcS5PUljLSK2vdM/9YIVX0YJRiR0W7+ASt1RD5Qw==;EndpointSuffix=core.windows.net"

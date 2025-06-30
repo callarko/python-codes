@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: snowflake-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: snowflake-app
+  template:
+    metadata:
+      labels:
+        app: snowflake-app
+    spec:
+      containers:
+      - name: snowflake-app
+        image: arkorgacr.azurecr.io/snowflake-app:latest
+        ports:
+        - containerPort: 5000
+        readinessProbe:
+          httpGet:
+            path: /query
+            port: 5000
+          initialDelaySeconds: 1
+          periodSeconds: 2
+          timeoutSeconds: 300
+          successThreshold: 1
+          failureThreshold: 1
+      imagePullSecrets:
+      - name: acr-auth

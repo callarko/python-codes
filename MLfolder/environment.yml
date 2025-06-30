@@ -1,0 +1,7 @@
+# MLfolder/environment.yml
+name: my-environment
+dependencies:
+  - python=3.8
+  - numpy
+  - pip:
+      - azureml-defaults
