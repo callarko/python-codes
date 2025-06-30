@@ -1,0 +1,1 @@
+print("Hello",1234,"python",10+5,sep=":",end="##")
