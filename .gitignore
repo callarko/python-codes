@@ -1,0 +1,41 @@
+# Python caches and environments
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+myenv/
+env/
+
+# Local configuration and secrets
+.env
+.env.*
+!.env.example
+local.settings.json
+aks-azure-function/aks-azure-function-deployment.yaml
+yolo/automate_disk_setup.py
+*.key
+*.pem
+*.crt
+*.cer
+*.pfx
+*.p12
+*.jks
+*.tfstate
+*.tfstate.*
+*.tfvars
+
+# Downloaded installers and build output
+*.exe
+*.msi
+build/
+dist/
+*.egg-info/
+
+# IDE and operating-system files
+.DS_Store
+.vscode/settings.json
+.idea/
+
+# Terraform working directories
+.terraform/
